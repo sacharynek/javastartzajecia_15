@@ -26,19 +26,19 @@ public class Main {
             System.out.println(iterator.next());
         }
         System.out.println("Przychodnia!!!");
-        Queue<Person> kolejka = new PriorityQueue<>();
-        kolejka.offer(p1);
-        kolejka.offer(p2);
-        kolejka.offer(p3);
-        kolejka.offer(p4);
-        kolejka.offer(p5);
-        kolejka.offer(p6);
+        Queue<Person> queue = new PriorityQueue<>();
+        queue.offer(p1);
+        queue.offer(p2);
+        queue.offer(p3);
+        queue.offer(p4);
+        queue.offer(p5);
+        queue.offer(p6);
 
-        Iterator<Person> kolejkaIterator = kolejka.iterator();
+        Iterator<Person> kolejkaIterator = queue.iterator();
 
-        while(!kolejka.isEmpty()){
-            System.out.println("Pacjent: "+kolejka.peek()+ " proszony do gabinetu");
-            System.out.println("Pacjent "+kolejka.poll()+" obsłużony");
+        while(!queue.isEmpty()){
+            System.out.println("Pacjent: "+queue.peek()+ " proszony do gabinetu");
+            System.out.println("Pacjent "+queue.poll()+" obsłużony");
 
         }
 
