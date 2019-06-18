@@ -1,15 +1,10 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         Set<Person> people = new TreeSet<>();
         Person p1 = new Person("edek", "sztacheta", "85634523");
         Person p2 = new Person("madzia", "wodzianka", "85634523");
@@ -66,5 +61,20 @@ public class Main {
             System.out.println("klient nie istnieje");
         }
 
+        File file = new File("movies.csv");
+        Scanner screader = null;
+        try {
+            screader = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        screader.nextLine();
+        while(screader.hasNextLine()){
+            String[] elements = screader.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+            String[] genres = elements[2].split("\\|");
+            ArrayList genreList = new ArrayList<>(Arrays.asList(genres));
+            System.out.println(genreList);
+        }
     }
 }
