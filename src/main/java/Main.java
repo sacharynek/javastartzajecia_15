@@ -1,6 +1,9 @@
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -40,6 +43,27 @@ public class Main {
             System.out.println("Pacjent: "+queue.peek()+ " proszony do gabinetu");
             System.out.println("Pacjent "+queue.poll()+" obsłużony");
 
+        }
+
+        Customer c1 = new Customer("111", "Mieczysław", "Bąk", "66666666");
+        Customer c2 = new Customer("222", "Edzia", "Stalin", "777777777");
+        Customer c3 = new Customer("333", "Jozek", "Hitler", "8888888");
+
+        Map<String,Customer> map = new HashMap<>();
+        map.put(c1.getId(), c1);
+        map.put(c2.getId(), c2);
+        map.put(c3.getId(), c3);
+
+        System.out.println(map.keySet());
+        System.out.println(map.values());
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("podaj id klienta");
+        String id = sc.nextLine();
+        if(map.keySet().contains(id)){
+            System.out.println(map.get(id));
+        } else {
+            System.out.println("klient nie istnieje");
         }
 
     }
